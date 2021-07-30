@@ -23,7 +23,6 @@ while (taskNumber != 4) {
       // Вывод рассчитанного значения
       alert(`Введённое значение температуры в градусах Цельсия: ${temperatureCelsius}
             соответствует ${temperatureFarengate} градус(ов)ам по шкале Фаренгейта`);
-
       break;
 
     case 2:
