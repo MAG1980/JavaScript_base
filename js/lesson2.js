@@ -9,6 +9,22 @@ function startTasks() {
     c,
     d;
 
+  function sum(a, b) {
+    return a + b;
+  }
+
+  function sub(a, b) {
+    return a - b;
+  }
+
+  function mul(a, b) {
+    return a * b;
+  }
+
+  function div(a, b) {
+    return a / b;
+  }
+
   switch (tuskNumber) {
     case "1":
       alert(`Условие: \n a = ${a}, b = ${b}, c = ${c}, d = ${d}`);
@@ -46,6 +62,65 @@ b = ${b}, результат сложения будет присвоен пер
       alert(`x = 1 \+ \(a \*= 2\) = ${x} \n Оператор группировки имеет наивысший приоритет, \n
       поэтому сначала выполнится действие в скобках: \n а = а * 2 = 4. \n Затем произойдёт сложение 1 и 4. \n
       Результат сложения присвоится переменной х = ${x}.`);
+      startTasks();
+      break;
+
+    case "3":
+      let result = null;
+      a = +prompt("Введите значение a", 10);
+      b = +prompt("Введите значение b", -10);
+      if (a >= 0 && b >= 0) result = a - b;
+      if (a < 0 && b < 0) result = a * b;
+      if ((a >= 0 && b < 0) || (a < 0 && b >= 0)) result = a + b;
+      alert("Результат вычислений: " + result);
+      startTasks();
+      break;
+
+    case "4":
+      /*Функции объявлены в глобальной области видимости*/
+      alert(
+        `Простые аримфметические функции: \n  \n ${sum} \n ${sub} \n ${mul} \n ${div}`
+      );
+      startTasks();
+      break;
+
+    case "5":
+      let operand1 = +prompt("Введите первое значение");
+      let operand2 = +prompt("Введите второе значение");
+      let operation = prompt(`Выберите первый символ названия
+       математической операции: \n
+        с - сложение
+        в - вычитание
+        у - умножение
+        д - деление`);
+      let upshot = null;
+
+      function mathOperation(arg1, arg2, operation) {
+        switch (operation) {
+          case "с":
+            return sum(arg1, arg2);
+
+          case "в":
+            return sub(arg1, arg2);
+
+          case "у":
+            return mul(arg1, arg2);
+
+          case "д":
+            return div(arg1, arg2);
+
+          default:
+            break;
+        }
+      }
+
+      upshot = mathOperation(operand1, operand2, operation);
+      if (isNaN(upshot)) {
+        alert("Вы ввели некорректное значение");
+      } else {
+        alert(`Результат вычислений = ${upshot}`);
+      }
+
       startTasks();
       break;
 
