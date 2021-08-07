@@ -124,6 +124,53 @@ b = ${b}, результат сложения будет присвоен пер
       startTasks();
       break;
 
+    case "6":
+      let str = "";
+      let value = undefined;
+
+      function askValue() {
+        let str = prompt(`
+                            Введите количество денег,
+                  которое Вы хотите положить на счёт в банке`);
+        if (isNaN(str)) {
+          alert("Вы ввели некорректное значение суммы");
+        } else {
+          return str;
+        }
+      }
+
+      while (value === undefined) value = askValue();
+      let lastChar = value.charAt(value.length - 1);
+      let word = "";
+
+      switch (lastChar) {
+        case "0":
+        case "5":
+        case "6":
+        case "7":
+        case "8":
+        case "9":
+          word = "рублей";
+          break;
+        case "2":
+        case "3":
+        case "4":
+          word = "рубля";
+          break;
+        case "1":
+          word = "рубль";
+          break;
+      }
+
+      alert(`Ваша сумма в ${value} ${word} успешно зачислена`);
+
+      /* 0,5,6,7,8,9 рублей
+      1 рубль
+      2,3,4, рубля
+      */
+      startTasks();
+      break;
+
     case "End":
       alert("Работа программы завершена \n по вашему требованию.");
       break;
