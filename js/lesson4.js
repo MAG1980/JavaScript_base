@@ -27,6 +27,9 @@ function startTasks() {
         if (isNaN(number)) {
           console.log("Введённое значение не является числом");
           fault = true;
+        } else if (!Number.isInteger(number)) {
+          console.log("Введённое число не является целым числом");
+          fault = true;
         }
         return [number, fault];
       }
