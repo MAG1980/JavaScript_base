@@ -172,6 +172,7 @@ function startTasks() {
       break;
 
     case "6":
+      game.init();
       startTasks();
       break;
 
