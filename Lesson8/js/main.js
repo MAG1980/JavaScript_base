@@ -12,7 +12,7 @@ window.onload = function () {
   let spanCartCounter = document.getElementById("header__cart-counter");
 
   //Счётчик товаров в корзине
-  let cartItemCounter = 3;
+  let cartItemCounter = null;
   spanCartCounter.textContent = cartItemCounter;
 
   //Коллекция карточек товаров
@@ -23,8 +23,11 @@ window.onload = function () {
     item.addEventListener("click", addToCart);
   });
 
-  //TOTAL price (HTML)
-  let totalPrice = document.getElementById("header__cart-total-price");
+  //TOTAL price (HTML-element)
+  let totalPriceElem = document.getElementById("header__cart-total-price");
+
+  //TOTAL price (Number)
+  let totalPrice = null;
 
   /**
    * Добавляет товар в корзину при возникновении события
@@ -36,7 +39,7 @@ window.onload = function () {
     console.log(event.target);
     event.preventDefault();
     cartItemCounterIncrement();
-    updateCartItemCounter();
+    CartItemCounterRenderer();
     console.log(this.querySelector(".products__image").getAttribute("src"));
     console.log(this.querySelector(".products__name").textContent);
     let product = {
@@ -48,10 +51,61 @@ window.onload = function () {
     //Шаблонный литерал товара в корзине
     let newItemInCart = markUpGenerator(product);
 
-    addItemToHTML(headerCards, newItemInCart);
+    //Отрисовка нового товара в корзине
+    addItemToHTMLRenderer(headerCards, newItemInCart);
 
+    //Добавление прослушивания события нажатия на кнопку "Close"
     addListenerToClose(headerCards);
+
+    totalPriceRenderer();
   }
+  /**
+   * Отрисовывает текущее значение итоговой стоимости товаров в корзине
+   */
+  function totalPriceRenderer() {
+    totalPriceElem.textContent = `$${totalPriceCalc()}`;
+  }
+
+  /**
+   * Возвращает итоговую стоимость товаров в корзине
+   */
+  function totalPriceCalc() {
+    return arrPricesToNumber(arrCartPrices());
+  }
+
+  /**
+   * Возвращает массив цен товаров в корзине
+   */
+  function arrCartPrices() {
+    //Массив цен товаров в корзине
+    let arrPrices = Array.from(cartItems).map(function (cartItem) {
+      //Текст строки с ценой товара
+      let stringPrice =
+        cartItem.querySelector(".header__card_text").textContent;
+      //Номер позиции символа $ в строке с ценой товара
+      let numberPos$ = stringPrice.indexOf("$");
+      //Часть строки с ценой, начиная с $, преобразованная в число
+      return Number(stringPrice.slice(numberPos$ + 1));
+    });
+    return arrPrices;
+  }
+  /**
+   * Возвращает сумму цен всех товаров в корзине
+   */
+  function arrPricesToNumber(arrPrices) {
+    if (!arrPrices.length) {
+      return 0;
+    }
+    //Сумма всех элеметов массива
+    return (totalPrice = arrPrices.reduce(function (sum, price) {
+      return (sum += price);
+    }));
+  }
+
+  /**
+   * Добавляет последнему дочернему элементу вызов функции удаления товара из корзины при клике по кнопке"Close"
+   * @param {*} parent  Родительский элемент, в котором будет производиться поиск кнопки "Close"
+   */
   function addListenerToClose(parent) {
     parent.lastElementChild
       .querySelector(".header__card_close")
@@ -71,7 +125,13 @@ window.onload = function () {
   function removeFromCart() {
     this.parentElement.remove(this);
     cartItemCounterDecrement();
-    updateCartItemCounter();
+    CartItemCounterRenderer();
+    cartContentUpdater();
+    totalPriceRenderer();
+  }
+
+  function cartContentUpdater() {
+    cartItems = headerCards.querySelectorAll(".header__card");
   }
 
   /**
@@ -90,8 +150,20 @@ window.onload = function () {
   /**
    * Обновляет отображение счётчика товаров в корзине
    */
-  function updateCartItemCounter() {
+  function CartItemCounterRenderer() {
     spanCartCounter.textContent = cartItemCounter;
+    if (
+      cartItemCounter >= 0 &&
+      spanCartCounter.classList.contains("visually-hidden")
+    ) {
+      spanCartCounter.classList.remove("visually-hidden");
+    }
+    if (
+      cartItemCounter === 0 &&
+      !spanCartCounter.classList.contains("visually-hidden")
+    ) {
+      spanCartCounter.classList.add("visually-hidden");
+    }
   }
 
   /**
@@ -123,13 +195,8 @@ window.onload = function () {
    * @param {*} element - элемент HTML, в который будет добавляться блок разметки
    * @param {*} markUp - блок HTML-разметки, который будет добавлен на страницу
    */
-  function addItemToHTML(element, markUp) {
+  function addItemToHTMLRenderer(element, markUp) {
     element.insertAdjacentHTML("beforeend", markUp);
     cartItems = headerCards.querySelectorAll(".header__card");
   }
-
-  addItemToHTML(
-    headerCards,
-    markUpGenerator({ imgSrc: "img/products/product_13.jpg" })
-  );
 };
