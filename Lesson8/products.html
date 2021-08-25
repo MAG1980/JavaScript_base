@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Shop</title>
+    <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="scss/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap"
+        rel="stylesheet">
+    <script async src="https://kit.fontawesome.com/9f679f2275.js" crossorigin="anonymous"></script>
+    <script defer src="/Lesson8/js/main.js"></script>
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header__top">
+                <div class="header__left">
+                    <div class="header__logo">
+                        <a class="header__brand" href="index.html">
+                            <img src="img/header_logo.jpg" srcset="img/header_logo@2x.jpg 2x, img/header_logo@3x.jpg 3x"
+                                class="header__img" alt="Логотип магазина">BRAN<span>D</span>
+                        </a>
+                    </div>
+                    <details class="header__search_button">
+                        <summary class="header__search_title">Browse</summary>
+                        <div class="header__link_details">
+                            <div class="header__link_list browse">
+                                <h3 class="header__link_title">Women</h3>
+                                <a href="single_page.html" class="header__link_link">Dresses</a>
+                                <a href="single_page.html" class="header__link_link">Tops</a>
+                                <a href="single_page.html" class="header__link_link">Sweaters/Knits</a>
+
+                                <a href="single_page.html" class="header__link_link">Skirts/Shorts</a>
+                                <a href="single_page.html" class="header__link_link">Accessories</a>
+                            </div>
+                            <div class="header__link_list browse">
+                                <h3 class="header__link_title">Men</h3>
+                                <a href="single_page.html" class="header__link_link">Tees/Tank tops</a>
+                                <a href="single_page.html" class="header__link_link">Shirts/Polos</a>
+                                <a href="single_page.html" class="header__link_link">Sweaters</a>
+                                <a href="single_page.html" class="header__link_link">Sweatshirts/Hoodies</a>
+                                <a href="single_page.html" class="header__link_link">Blazers</a>
+                                <a href="single_page.html" class="header__link_link">Jackets/vests</a>
+                            </div>
+                        </div>
+                    </details>
+                    <div class="header__search">
+
+                        <form action="#" class="header__search_form">
+                            <input class="header__search_text" type="text" placeholder="Search for Item...">
+                            <button class="header__search_scope" type="submit" src="img/scope.png">
+                        </form>
+
+                    </div>
+                </div>
+                <div class="header__right">
+                    <details class="header__cart">
+                        <summary class="header__cart_title"><img src="img/cart.svg"></img>
+                            <span class="header__cart-marker" id="header__cart-counter">1</span>
+                        </summary>
+
+                        <div class="header__cart_box" id="header__cart-box">
+                            <div class="header__cards" id="header__cards">
+                                <div class="header__card">
+                                    <a class="header__card_link">
+                                        <img src="img/products/product_mini_1.jpg" alt="товар" class="header__card_img">
+                                        <div class="header__card_info">
+                                            <h3 class="header__card_title">Rebox Zane</h3>
+                                            <p class="header__card_icons"><i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                            </p>
+                                            <p class="header__card_text">1 x $250</p>
+                                        </div>
+                                    </a>
+                                    <button class="header__card_close" type="button"><i class="fa fa-times-circle"
+                                            aria-hidden="true"></i></button>
+                                </div>
+                                <div class="header__card">
+                                    <a class="header__card_link">
+                                        <img src="img/products/product_mini_2.jpg" alt="товар" class="header__card_img">
+                                        <div class="header__card_info">
+                                            <h3 class="header__card_title">Rebox Zane</h3>
+                                            <p class="header__card_icons"><i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                            </p>
+                                            <p class="header__card_text">1 x $250</p>
+                                        </div>
+                                    </a>
+                                    <button class="header__card_close" type="button"><i class="fa fa-times-circle"
+                                            aria-hidden="true"></i></button>
+                                </div>
+                            </div>
+                            <div class="header__cart_summary">
+                                <p>TOTAL</p>
+                                <p id="header__cart-total-price">$500.00</p>
+                            </div>
+                            <a href="checkout.html" class="header__button header__button_checkout">Checkout</a>
+                            <a href="shopping_cart.html" class="header__button header__button_go-to-cart">Go to cart</a>
+
+
+                        </div>
+                    </details>
+                    <a class="header__account">My Account <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+                </div>
+            </div>
+            <nav class="header__nav">
+                <ul class="header__menu">
+                    <li class="header__menu_list"><a class="header__link" href="index.html">HOME</a></li>
+                    <li class="header__menu_list"><a class="header__link active" href="products.html">MAN</a>
+                        <div class="header__link_box">
+                            <div class="header__link_list">
+                                <h3 class="header__link_title">Women</h3>
+                                <a href="single_page.html" class="header__link_link">Dresses</a>
+                                <a href="single_page.html" class="header__link_link">Tops</a>
+                                <a href="single_page.html" class="header__link_link">Sweaters/Knits</a>
+                                <a href="single_page.html" class="header__link_link">Jackets/Coats</a>
+                                <a href="single_page.html" class="header__link_link">Blazers</a>
+                                <a href="single_page.html" class="header__link_link">Denim</a>
+                                <a href="single_page.html" class="header__link_link">Leggings/Pants</a>
+                                <a href="single_page.html" class="header__link_link">Skirts/Shorts</a>
+                                <a href="single_page.html" class="header__link_link">Accessories</a>
+                            </div>
+                            <div class="header__link_list">
+                                <h3 class="header__link_title">Women</h3>
+                                <a href="single_page.html" class="header__link_link">Dresses</a>
+                                <a href="single_page.html" class="header__link_link">Tops</a>
+                                <a href="single_page.html" class="header__link_link">Sweaters/Knits</a>
+                                <a href="single_page.html" class="header__link_link">Jackets/Coats</a>
+                                <h3 class="header__link_title header__link_title_mt">Women</h3>
+                                <a href="single_page.html" class="header__link_link">Dresses</a>
+                                <a href="single_page.html" class="header__link_link">Tops</a>
+                                <a href="single_page.html" class="header__link_link">Sweaters/Knits</a>
+                            </div>
+                            <div class="header__link_list no_m-r">
+                                <h3 class="header__link_title">Women</h3>
+                                <a href="single_page.html" class="header__link_link">Dresses</a>
+                                <a href="single_page.html" class="header__link_link">Tops</a>
+                                <a href="single_page.html" class="header__link_link">Sweaters/Knits</a>
+                                <a href="single_page.html" class="header__link_link">Jackets/Coats</a>
+                                <a href="single_page.html" class="header__link_link">
+                                    <img class="header__link-img" src="img/sale.jpg" alt="распродажа">
+                                    <img class="header__link-offer" src="img/super__sale.png"
+                                        alt="супер распродажа"></a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="header__menu_list"><a class="header__link" href="products.html">WOMEN</a>
+                        <div class="header__link_box">
+                            <div class="header__link_list">
+                                <h3 class="header__link_title">Women</h3>
+                                <a href="single_page.html" class="header__link_link">Dresses</a>
+                                <a href="single_page.html" class="header__link_link">Tops</a>
+                                <a href="single_page.html" class="header__link_link">Sweaters/Knits</a>
+                                <a href="single_page.html" class="header__link_link">Jackets/Coats</a>
+                                <a href="single_page.html" class="header__link_link">Blazers</a>
+                                <a href="single_page.html" class="header__link_link">Denim</a>
+                                <a href="single_page.html" class="header__link_link">Leggings/Pants</a>
+                                <a href="single_page.html" class="header__link_link">Skirts/Shorts</a>
+                                <a href="single_page.html" class="header__link_link">Accessories</a>
+                            </div>
+                            <div class="header__link_list">
+                                <h3 class="header__link_title">Women</h3>
+                                <a href="single_page.html" class="header__link_link">Dresses</a>
+                                <a href="single_page.html" class="header__link_link">Tops</a>
+                                <a href="single_page.html" class="header__link_link">Sweaters/Knits</a>
+                                <a href="single_page.html" class="header__link_link">Jackets/Coats</a>
+                                <h3 class="header__link_title header__link_title_mt">Women</h3>
+                                <a href="single_page.html" class="header__link_link">Dresses</a>
+                                <a href="single_page.html" class="header__link_link">Tops</a>
+                                <a href="single_page.html" class="header__link_link">Sweaters/Knits</a>
+                            </div>
+                            <div class="header__link_list no_m-r">
+                                <h3 class="header__link_title">Women</h3>
+                                <a href="single_page.html" class="header__link_link">Dresses</a>
+                                <a href="single_page.html" class="header__link_link">Tops</a>
+                                <a href="single_page.html" class="header__link_link">Sweaters/Knits</a>
+                                <a href="single_page.html" class="header__link_link">Jackets/Coats</a>
+                                <a href="single_page.html" class="header__link_link">
+                                    <img class="header__link-img" src="img/sale.jpg" alt="распродажа">
+                                    <img class="header__link-offer" src="img/super__sale.png"
+                                        alt="супер распродажа"></a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="header__menu_list"><a class="header__link" href="products.html">KIDS</a>
+                        <div class="header__link_box">
+                            <div class="header__link_list">
+                                <h3 class="header__link_title">Women</h3>
+                                <a href="single_page.html" class="header__link_link">Dresses</a>
+                                <a href="single_page.html" class="header__link_link">Tops</a>
+                                <a href="single_page.html" class="header__link_link">Sweaters/Knits</a>
+
+                                <a href="single_page.html" class="header__link_link">Skirts/Shorts</a>
+                                <a href="single_page.html" class="header__link_link">Accessories</a>
+                            </div>
+                            <div class="header__link_list">
+                                <h3 class="header__link_title">Women</h3>
+                                <a href="single_page.html" class="header__link_link">Dresses</a>
+                                <a href="single_page.html" class="header__link_link">Tops</a>
+                                <a href="single_page.html" class="header__link_link">Sweaters/Knits</a>
+                                <a href="single_page.html" class="header__link_link">Jackets/Coats</a>
+                                <a href="single_page.html" class="header__link_link">Blazers</a>
+                                <a href="single_page.html" class="header__link_link">Denim</a>
+                                <a href="single_page.html" class="header__link_link">Leggings/Pants</a>
+                                <a href="single_page.html" class="header__link_link">Skirts/Shorts</a>
+                                <a href="single_page.html" class="header__link_link">Accessories</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="header__menu_list header__dropdown_right"><a class="header__link"
+                            href="products.html">ACCOSERIESE</a>
+                        <div class="header__link_box">
+                            <div class="header__link_list">
+                                <h3 class="header__link_title">Women</h3>
+                                <a href="single_page.html" class="header__link_link">Dresses</a>
+                                <a href="single_page.html" class="header__link_link">Tops</a>
+                                <a href="single_page.html" class="header__link_link">Sweaters/Knits</a>
+                                <a href="single_page.html" class="header__link_link">Jackets/Coats</a>
+                                <a href="single_page.html" class="header__link_link">Blazers</a>
+                                <a href="single_page.html" class="header__link_link">Denim</a>
+                                <a href="single_page.html" class="header__link_link">Leggings/Pants</a>
+                                <a href="single_page.html" class="header__link_link">Skirts/Shorts</a>
+                                <a href="single_page.html" class="header__link_link">Accessories</a>
+                            </div>
+                            <div class="header__link_list">
+                                <h3 class="header__link_title">Women</h3>
+                                <a href="single_page.html" class="header__link_link">Dresses</a>
+                                <a href="single_page.html" class="header__link_link">Tops</a>
+                                <a href="single_page.html" class="header__link_link">Sweaters/Knits</a>
+                                <a href="single_page.html" class="header__link_link">Jackets/Coats</a>
+                                <h3 class="header__link_title header__link_title_mt">Women</h3>
+                                <a href="single_page.html" class="header__link_link">Dresses</a>
+                                <a href="single_page.html" class="header__link_link">Tops</a>
+                                <a href="single_page.html" class="header__link_link">Sweaters/Knits</a>
+                            </div>
+                            <div class="header__link_list no_m-r">
+                                <h3 class="header__link_title">Women</h3>
+                                <a href="single_page.html" class="header__link_link">Dresses</a>
+                                <a href="single_page.html" class="header__link_link">Tops</a>
+                                <a href="single_page.html" class="header__link_link">Sweaters/Knits</a>
+                                <a href="single_page.html" class="header__link_link">Jackets/Coats</a>
+                                <a href="single_page.html" class="header__link_link">
+                                    <img class="header__link-img" src="img/sale.jpg" alt="распродажа">
+                                    <img class="header__link-offer" src="img/super__sale.png"
+                                        alt="супер распродажа"></a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="header__menu_list header__dropdown_right"><a class="header__link"
+                            href="products.html">FEATURED</a>
+                        <div class="header__link_box">
+                            <div class="header__link_list">
+                                <h3 class="header__link_title">Women</h3>
+                                <a href="single_page.html" class="header__link_link">Dresses</a>
+                                <a href="single_page.html" class="header__link_link">Tops</a>
+                                <a href="single_page.html" class="header__link_link">Sweaters/Knits</a>
+                                <a href="single_page.html" class="header__link_link">Jackets/Coats</a>
+                                <a href="single_page.html" class="header__link_link">Blazers</a>
+                                <a href="single_page.html" class="header__link_link">Denim</a>
+                                <a href="single_page.html" class="header__link_link">Leggings/Pants</a>
+                                <a href="single_page.html" class="header__link_link">Skirts/Shorts</a>
+                                <a href="single_page.html" class="header__link_link">Accessories</a>
+                            </div>
+                            <div class="header__link_list">
+                                <h3 class="header__link_title">Women</h3>
+                                <a href="single_page.html" class="header__link_link">Dresses</a>
+                                <a href="single_page.html" class="header__link_link">Tops</a>
+                                <a href="single_page.html" class="header__link_link">Sweaters/Knits</a>
+                                <a href="single_page.html" class="header__link_link">Jackets/Coats</a>
+                                <h3 class="header__link_title header__link_title_mt">Women</h3>
+                                <a href="single_page.html" class="header__link_link">Dresses</a>
+                                <a href="single_page.html" class="header__link_link">Tops</a>
+                                <a href="single_page.html" class="header__link_link">Sweaters/Knits</a>
+                            </div>
+                            <div class="header__link_list no_m-r">
+                                <h3 class="header__link_title">Women</h3>
+                                <a href="single_page.html" class="header__link_link">Dresses</a>
+                                <a href="single_page.html" class="header__link_link">Tops</a>
+                                <a href="single_page.html" class="header__link_link">Sweaters/Knits</a>
+                                <a href="single_page.html" class="header__link_link">Jackets/Coats</a>
+                                <a href="single_page.html" class="header__link_link">
+                                    <img class="header__link-img" src="img/sale.jpg" alt="распродажа">
+                                    <img class="header__link-offer" src="img/super__sale.png"
+                                        alt="супер распродажа"></a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="header__menu_list header__dropdown_right"><a class="header__link"
+                            href="products.html">HOT
+                            DEALS</a>
+                        <div class="header__link_box">
+                            <div class="header__link_list">
+                                <h3 class="header__link_title">Women</h3>
+                                <a href="single_page.html" class="header__link_link">Dresses</a>
+                                <a href="single_page.html" class="header__link_link">Tops</a>
+                                <a href="single_page.html" class="header__link_link">Sweaters/Knits</a>
+                                <a href="single_page.html" class="header__link_link">Jackets/Coats</a>
+                                <a href="single_page.html" class="header__link_link">Blazers</a>
+                                <a href="single_page.html" class="header__link_link">Denim</a>
+                                <a href="single_page.html" class="header__link_link">Leggings/Pants</a>
+                                <a href="single_page.html" class="header__link_link">Skirts/Shorts</a>
+                                <a href="single_page.html" class="header__link_link">Accessories</a>
+                            </div>
+                            <div class="header__link_list">
+                                <h3 class="header__link_title">Women</h3>
+                                <a href="single_page.html" class="header__link_link">Dresses</a>
+                                <a href="single_page.html" class="header__link_link">Tops</a>
+                                <a href="single_page.html" class="header__link_link">Sweaters/Knits</a>
+                                <a href="single_page.html" class="header__link_link">Jackets/Coats</a>
+                                <h3 class="header__link_title header__link_title_mt">Women</h3>
+                                <a href="single_page.html" class="header__link_link">Dresses</a>
+                                <a href="single_page.html" class="header__link_link">Tops</a>
+                                <a href="single_page.html" class="header__link_link">Sweaters/Knits</a>
+                            </div>
+                            <div class="header__link_list no_m-r">
+                                <h3 class="header__link_title">Women</h3>
+                                <a href="single_page.html" class="header__link_link">Dresses</a>
+                                <a href="single_page.html" class="header__link_link">Tops</a>
+                                <a href="single_page.html" class="header__link_link">Sweaters/Knits</a>
+                                <a href="single_page.html" class="header__link_link">Jackets/Coats</a>
+                                <a href="single_page.html" class="header__link_link">
+                                    <img class="header__link-img" src="img/sale.jpg" alt="распродажа">
+                                    <img class="header__link-offer" src="img/super__sale.png"
+                                        alt="супер распродажа"></a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="arrivals">
+        <div class="arrivals__box container">
+            <h2 class="arrivals__heading">Men</h2>
+            <nav>
+                <ul class="arrivals__breadcrumbs">
+                    <li class="arrivals__breadcrumbs_item"><a class="arrivals__breadcrumbs_link"
+                            href="index.html">Home</a>
+                    </li>
+                    <li class="arrivals__breadcrumbs_item arrivals__breadcrumbs_item_active" aria-current="page">Men
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <section class="products container">
+        <nav class="products__nav">
+            <details class="products__dropdown">
+                <summary class="products__dropdown_title">Category</summary>
+                <div class="products__link_details">
+                    <div class="products__link_list">
+                        <a href="#" class="products__link_link">Accessories</a>
+                        <a href="#" class="products__link_link">Bags</a>
+                        <a href="#" class="products__link_link">Denim</a>
+                        <a href="#" class="products__link_link">Hoodies & Sweatshirts</a>
+                        <a href="#" class="products__link_link">Jackets & Coats</a>
+                        <a href="#" class="products__link_link">Pants</a>
+                        <a href="#" class="products__link_link">Polos</a>
+                        <a href="#" class="products__link_link">Shirts</a>
+                        <a href="#" class="products__link_link">Shoes</a>
+                        <a href="#" class="products__link_link">Shorts</a>
+                        <a href="#" class="products__link_link">Sweaters & Knits</a>
+                        <a href="#" class="products__link_link">T-Shirts</a>
+                        <a href="#" class="products__link_link">Tanks</a>
+                    </div>
+                </div>
+            </details>
+            <details class="products__dropdown">
+                <summary class="products__dropdown_title">BRAND</summary>
+                <div class="products__link_details">
+                    <div class="products__link_list">
+                        <a href="#" class="products__link_link">Accessories</a>
+                        <a href="#" class="products__link_link">Bags</a>
+                        <a href="#" class="products__link_link">Denim</a>
+                        <a href="#" class="products__link_link">Hoodies & Sweatshirts</a>
+                        <a href="#" class="products__link_link">Jackets & Coats</a>
+                        <a href="#" class="products__link_link">Pants</a>
+                        <a href="#" class="products__link_link">Polos</a>
+                        <a href="#" class="products__link_link">Shirts</a>
+                        <a href="#" class="products__link_link">Shoes</a>
+                        <a href="#" class="products__link_link">Shorts</a>
+                        <a href="#" class="products__link_link">Sweaters & Knits</a>
+                        <a href="#" class="products__link_link">T-Shirts</a>
+                        <a href="#" class="products__link_link">Tanks</a>
+                    </div>
+                </div>
+            </details>
+            <details class="products__dropdown">
+                <summary class="products__dropdown_title">dESIGNER</summary>
+                <div class="products__link_details">
+                    <div class="products__link_list">
+                        <a href="#" class="products__link_link">Accessories</a>
+                        <a href="#" class="products__link_link">Bags</a>
+                        <a href="#" class="products__link_link">Denim</a>
+                        <a href="#" class="products__link_link">Hoodies & Sweatshirts</a>
+                        <a href="#" class="products__link_link">Jackets & Coats</a>
+                        <a href="#" class="products__link_link">Pants</a>
+                        <a href="#" class="products__link_link">Polos</a>
+                        <a href="#" class="products__link_link">Shirts</a>
+                        <a href="#" class="products__link_link">Shoes</a>
+                        <a href="#" class="products__link_link">Shorts</a>
+                        <a href="#" class="products__link_link">Sweaters & Knits</a>
+                        <a href="#" class="products__link_link">T-Shirts</a>
+                        <a href="#" class="products__link_link">Tanks</a>
+                    </div>
+                </div>
+            </details>
+        </nav>
+        <div class="products__box">
+            <div class="products__header">
+                <form class="products__select" oninput=" result.value=(price__range.value)" action="#"">
+                    <fieldset class=" products__select_top">
+                    <nav class=" products__select_area">
+                        <h3 class="products__select_heading">Trending now</h3>
+                        <div class="products__select_parameters">
+                            <a href="#" class="products__select_link">Bohemian</a>
+                            <a href="#" class="products__select_link">Floral</a>
+                            <a href="#" class="products__select_link">Lace</a>
+                            <a href="#" class="products__select_link">Floral</a>
+                            <a href="#" class="products__select_link">Lace</a>
+                            <a href="#" class="products__select_link">Bohemian</a>
+
+                        </div>
+                    </nav>
+                    <div class="products__select_area">
+                        <h3 class="products__select_heading">Size</h3>
+                        <fieldset class="products__select_parameters">
+                            <label for="XXS">
+                                <input id="XXS" type="checkbox">XXS</label>
+                            <label for="XS">
+                                <input id="XS" type="checkbox">XS</label>
+                            <label for="S">
+                                <input id="S" type="checkbox">S</label>
+                            <label for="M">
+                                <input id="M" type="checkbox">M</label>
+                            <label for="L">
+                                <input id="L" type="checkbox">L</label>
+                            <label for="XL">
+                                <input id="XL" type="checkbox">XL</label>
+                            <label for="XXL">
+                                <input id="XXL" type="checkbox">XXL</label>
+                        </fieldset>
+                    </div>
+                    <div class="products__select_area">
+                        <h3 class="products__select_heading">pRICE</h3>
+                        <fieldset class="products__select_parameters">
+                            <label id="price__range_label" for="price__range">
+                                <input id="price__range" type="range" min="0" max="400" step="1">
+                                <output id="price__range_output" name="result" for="price__range">52</output>
+                        </fieldset>
+                    </div>
+                    </fieldset>
+
+                    <fieldset class="products__select_bottom">
+                        <div class="products__sort">
+                            <p>Sort By</p>
+                            <select name="sort" id="products__sort_by">
+                                <option value="name">Name</option>
+                                <option value="size">Size</option>
+                                <option value="color">Color</option>
+                                <option value="gender">Gender</option>
+                            </select>
+                        </div>
+                        <div class="products__show">
+                            <p>Show</p>
+                            <select name="show" id="products__show_count">
+                                <option value="name">03</option>
+                                <option value="size">06</option>
+                                <option value="color">09</option>
+                                <option value="gender">12</option>
+                            </select>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+            <div class="products__content">
+                <div class="products__row">
+                    <div class="products__item">
+                        <a class="products__product" href="single_page.html">
+                            <img src="img/products/product_13.jpg" alt="товар" class="products__image">
+                            <p class="products__name">Mango People jacket№1</p>
+                            <p class="products__price">$152.00</p>
+                        </a>
+                        <div class="products__add">
+                            <div class="products__add_wrapper">
+                                <a class="products__add_link" href="cart_page.html">
+                                    <img src="img/products/add_to_cart.png" alt="корзина" class="products__add_icon">
+                                    <p class="products__add_text">Add to Cart</p>
+                                </a>
+                                <div class="products__add_links">
+                                    <a class="products__add_small" href="cart_page.html">
+                                        <img src="img/icons/arrow_u_d.png" alt="обновить" class="products__add_icon">
+                                    </a>
+                                    <a class="products__add_small" href="cart_page.html">
+                                        <img src="img/icons/heart.png" alt="добавить в избранное"
+                                            class="products__add_icon">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="products__item">
+                        <a class="products__product" href="single_page.html">
+                            <img src="img/products/product_14.jpg" alt="товар" class="products__image">
+                            <p class="products__name">Mango People jacket№2</p>
+                            <p class="products__price">$235.00</p>
+                        </a>
+                        <div class="products__add">
+                            <div class="products__add_wrapper">
+                                <a class="products__add_link" href="cart_page.html">
+                                    <img src="img/products/add_to_cart.png" alt="корзина" class="products__add_icon">
+                                    <p class="products__add_text">Add to Cart</p>
+                                </a>
+                                <div class="products__add_links">
+                                    <a class="products__add_small" href="cart_page.html">
+                                        <img src="img/icons/arrow_u_d.png" alt="обновить" class="products__add_icon">
+                                    </a>
+                                    <a class="products__add_small" href="cart_page.html">
+                                        <img src="img/icons/heart.png" alt="добавить в избранное"
+                                            class="products__add_icon">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="products__item">
+                        <a class="products__product" href="single_page.html">
+                            <img src="img/products/product_15.jpg" alt="товар" class="products__image">
+                            <p class="products__name">Mango People jacket№3</p>
+                            <p class="products__price">$224.00</p>
+                        </a>
+                        <div class="products__add">
+                            <div class="products__add_wrapper">
+                                <a class="products__add_link" href="cart_page.html">
+                                    <img src="img/products/add_to_cart.png" alt="корзина" class="products__add_icon">
+                                    <p class="products__add_text">Add to Cart</p>
+                                </a>
+                                <div class="products__add_links">
+                                    <a class="products__add_small" href="cart_page.html">
+                                        <img src="img/icons/arrow_u_d.png" alt="обновить" class="products__add_icon">
+                                    </a>
+                                    <a class="products__add_small" href="cart_page.html">
+                                        <img src="img/icons/heart.png" alt="добавить в избранное"
+                                            class="products__add_icon">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="products__row">
+                    <div class="products__item">
+                        <a class="products__product" href="single_page.html">
+                            <img src="img/products/product_16.jpg" alt="товар" class="products__image">
+                            <p class="products__name">Mango People T-shirt</p>
+                            <p class="products__price">$52.00</p>
+                        </a>
+                        <div class="products__add">
+                            <div class="products__add_wrapper">
+                                <a class="products__add_link" href="cart_page.html">
+                                    <img src="img/products/add_to_cart.png" alt="корзина" class="products__add_icon">
+                                    <p class="products__add_text">Add to Cart</p>
+                                </a>
+                                <div class="products__add_links">
+                                    <a class="products__add_small" href="cart_page.html">
+                                        <img src="img/icons/arrow_u_d.png" alt="обновить" class="products__add_icon">
+                                    </a>
+                                    <a class="products__add_small" href="cart_page.html">
+                                        <img src="img/icons/heart.png" alt="добавить в избранное"
+                                            class="products__add_icon">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="products__item">
+                        <a class="products__product" href="single_page.html">
+                            <img src="img/products/product_17.jpg" alt="товар" class="products__image">
+                            <p class="products__name">Mango People sweater</p>
+                            <p class="products__price">$112.00</p>
+                        </a>
+                        <div class="products__add">
+                            <div class="products__add_wrapper">
+                                <a class="products__add_link" href="cart_page.html">
+                                    <img src="img/products/add_to_cart.png" alt="корзина" class="products__add_icon">
+                                    <p class="products__add_text">Add to Cart</p>
+                                </a>
+                                <div class="products__add_links">
+                                    <a class="products__add_small" href="cart_page.html">
+                                        <img src="img/icons/arrow_u_d.png" alt="обновить" class="products__add_icon">
+                                    </a>
+                                    <a class="products__add_small" href="cart_page.html">
+                                        <img src="img/icons/heart.png" alt="добавить в избранное"
+                                            class="products__add_icon">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="products__item">
+                        <a class="products__product" href="single_page.html">
+                            <img src="img/products/product_18.jpg" alt="товар" class="products__image">
+                            <p class="products__name">Mango People jacket</p>
+                            <p class="products__price">$54.00</p>
+                        </a>
+                        <div class="products__add">
+                            <div class="products__add_wrapper">
+                                <a class="products__add_link" href="cart_page.html">
+                                    <img src="img/products/add_to_cart.png" alt="корзина" class="products__add_icon">
+                                    <p class="products__add_text">Add to Cart</p>
+                                </a>
+                                <div class="products__add_links">
+                                    <a class="products__add_small" href="cart_page.html">
+                                        <img src="img/icons/arrow_u_d.png" alt="обновить" class="products__add_icon">
+                                    </a>
+                                    <a class="products__add_small" href="cart_page.html">
+                                        <img src="img/icons/heart.png" alt="добавить в избранное"
+                                            class="products__add_icon">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="products__row">
+                    <div class="products__item">
+                        <a class="products__product" href="single_page.html">
+                            <img src="img/products/product_19.jpg" alt="товар" class="products__image">
+                            <p class="products__name">Mango People Blazer</p>
+                            <p class="products__price">$356.00</p>
+                        </a>
+                        <div class="products__add">
+                            <div class="products__add_wrapper">
+                                <a class="products__add_link" href="cart_page.html">
+                                    <img src="img/products/add_to_cart.png" alt="корзина" class="products__add_icon">
+                                    <p class="products__add_text">Add to Cart</p>
+                                </a>
+                                <div class="products__add_links">
+                                    <a class="products__add_small" href="cart_page.html">
+                                        <img src="img/icons/arrow_u_d.png" alt="обновить" class="products__add_icon">
+                                    </a>
+                                    <a class="products__add_small" href="cart_page.html">
+                                        <img src="img/icons/heart.png" alt="добавить в избранное"
+                                            class="products__add_icon">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="products__item">
+                        <a class="products__product" href="single_page.html">
+                            <img src="img/products/product_20.jpg" alt="товар" class="products__image">
+                            <p class="products__name">Mango People jacket</p>
+                            <p class="products__price">$352.00</p>
+                        </a>
+                        <div class="products__add">
+                            <div class="products__add_wrapper">
+                                <a class="products__add_link" href="cart_page.html">
+                                    <img src="img/products/add_to_cart.png" alt="корзина" class="products__add_icon">
+                                    <p class="products__add_text">Add to Cart</p>
+                                </a>
+                                <div class="products__add_links">
+                                    <a class="products__add_small" href="cart_page.html">
+                                        <img src="img/icons/arrow_u_d.png" alt="обновить" class="products__add_icon">
+                                    </a>
+                                    <a class="products__add_small" href="cart_page.html">
+                                        <img src="img/icons/heart.png" alt="добавить в избранное"
+                                            class="products__add_icon">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="products__item">
+                        <a class="products__product" href="single_page.html">
+                            <img src="img/products/product_21.jpg" alt="товар" class="products__image">
+                            <p class="products__name">Mango People T-shirt№2</p>
+                            <p class="products__price">$57.00</p>
+                        </a>
+                        <div class="products__add">
+                            <div class="products__add_wrapper">
+                                <a class="products__add_link" href="cart_page.html">
+                                    <img src="img/products/add_to_cart.png" alt="корзина" class="products__add_icon">
+                                    <p class="products__add_text">Add to Cart</p>
+                                </a>
+                                <div class="products__add_links">
+                                    <a class="products__add_small" href="cart_page.html">
+                                        <img src="img/icons/arrow_u_d.png" alt="обновить" class="products__add_icon">
+                                    </a>
+                                    <a class="products__add_small" href="cart_page.html">
+                                        <img src="img/icons/heart.png" alt="добавить в избранное"
+                                            class="products__add_icon">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="products__button">
+                    <div class="products__pagination">
+                        <a href="" class="products__pagination_link"><i class="fa fa-angle-left"
+                                aria-hidden="true"></i></a>
+                        <a href="" class="products__pagination_link">1</a>
+                        <a href="" class="products__pagination_link">2</a>
+                        <a href="" class="products__pagination_link">3</a>
+                        <a href="" class="products__pagination_link">4</a>
+                        <a href="" class="products__pagination_link">5</a>
+                        <a href="" class="products__pagination_link">6</a>
+                        <a href="" class="products__pagination_link">...</a>
+                        <a href="" class="products__pagination_link">20</a>
+                        <a href="" class="products__pagination_link"><i class="fa fa-angle-right"
+                                aria-hidden="true"></i></a>
+                    </div>
+                    <a href="#" class="products__button_link">View All</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="products__offer">
+        <div class="products__offer__advantages container">
+            <div class="products__offer__card">
+
+                <img class="products__offer__picture" src="img/icons/car.png"></img>
+
+                <div class="products__offer__card_text">
+                    <h3 class="products__offer__header">Free Delivery</h3>
+                    <p class="products__offer__descr">Worldwide delivery on all. Authorit tively morph next-generation
+                        innov tion
+                        with extensive models.</p>
+                </div>
+            </div>
+            <div class="products__offer__card">
+
+                <img class="products__offer__picture" src="img/icons/precent.png"></img>
+
+
+                <div class="products__offer__card_text">
+                    <h3 class="products__offer__header">Sales & discounts</h3>
+                    <p class="products__offer__descr">Worldwide delivery on all. Authorit tively morph next-generation
+                        innov tion
+                        with extensive models.</p>
+                </div>
+            </div>
+            <div class="products__offer__card">
+
+                <img class="products__offer__picture" src="img/icons/crown.png"></img>
+
+
+                <div class="products__offer__card_text">
+                    <h3 class="products__offer__header">Quality assurance</h3>
+                    <p class="products__offer__descr">Worldwide delivery on all. Authorit tively morph next-generation
+                        innov tion
+                        with extensive models.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="products__subscribe">
+        <div class="container subscribe__wrapper">
+            <div class="subscribe__vertical_line">
+                <figure class="subscribe__quote">
+                    <div class="subscribe__portrait">
+                        <img src="img/women_portrait.jpg" alt="портрет женщины" class="subscribe__photo">
+                    </div>
+                    <div class="subscribe__text">
+                        <figcaption class="subscribe__quote_text">“Vestibulum quis porttitor dui! Quisque viverra nunc
+                            mi,
+                            a pulvinar purus condimentum a. Aliquam condimentum mattis neque sed pretium”</figcaption>
+                        <p class="subscribe__signature">Bin Burhan</p>
+                        <p class="subscribe__place">Dhaka, Bd</p>
+                        <div class="subscribe__lister">
+                            <div class="subscribe__lister_item"></div>
+                            <div class="subscribe__lister_item"></div>
+                            <div class="subscribe__lister_item"></div>
+                        </div>
+                    </div>
+
+                </figure>
+
+            </div>
+            <div class="subscribe__form">
+                <h4 class="subscribe__heading">Subscribe</h4>
+                <p class="subscribe__heading_text">FOR OUR NEWLETTER AND PROMOTION</p>
+                <form class="subscribe__form_input" action="#">
+                    <input class="subscribe__email" type="email" placeholder="Enter Your Email">
+                    <button class="subscribe__button" type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__top">
+                <div class="footer__top_content">
+                    <div class="footer__top_left">
+                        <div class="footer__brand">
+                            <div class="footer__logo">
+                                <a href="index.html"><img src="img/logo.png" alt="Логотип"
+                                        class="footer__logo_image"></a>
+                                <a href="index.html" class="footer__brand_text">BRAN<span>D</span></a>
+                            </div>
+
+                            <div class="footer__text">
+                                <p class="footer__text_first">Objectively transition extensive data rather than cross
+                                    functional solutions.
+                                    Monotonectally syndicate multidisciplinary
+                                    materials before go forward benefits. Intrinsicly syndicate an expanded array of
+                                    processes and cross-unit partnerships.</p>
+                                <p class="footer__text_second">Efficiently plagiarize 24/365 action items and focused
+                                    infomediaries.
+                                    Distinctively seize superior initiatives for wireless technologies. Dynamically
+                                    optimize.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer__top_right">
+                        <div class="footer__column">
+                            <h4 class="footer__column_heading"><a href="#">COMPANY</a></h4>
+                            <ul class="footer__column_list">
+                                <li class="footer__column_item"><a href="#">Home</a></li>
+                                <li class="footer__column_item"><a href="#">Shop</a></li>
+                                <li class="footer__column_item"><a href="#">About</a></li>
+                                <li class="footer__column_item"><a href="#">How It Works</a></li>
+                                <li class="footer__column_item"><a href="#">Contact</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer__column">
+                            <h4 class="footer__column_heading"><a href="#">INFORMATION</a></h4>
+                            <ul class="footer__column_list">
+                                <li class="footer__column_item"><a href="#">Tearms & Condition</a></li>
+                                <li class="footer__column_item"><a href="#">Privacy Policy</a></li>
+                                <li class="footer__column_item"><a href="#">How to Buy</a></li>
+                                <li class="footer__column_item"><a href="#">How to Sell</a></li>
+                                <li class="footer__column_item"><a href="#">Promotion</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer__column">
+                            <h4 class="footer__column_heading"><a href="#">SHOP CATEGORY</a></h4>
+                            <ul class="footer__column_list">
+                                <li class="footer__column_item"><a href="#">Men</a></li>
+                                <li class="footer__column_item"><a href="#">Men</a></li>
+                                <li class="footer__column_item"><a href="#">Child</a></li>
+                                <li class="footer__column_item"><a href="#">Apparel</a></li>
+                                <li class="footer__column_item"><a href="#">Brows All</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <div class="footer__bottom_container container">
+                <div class="footer__copyright">
+                    &copy;2017 Brand All Rights Reserved.
+                </div>
+                <div class="footer__icons">
+                    <div class="footer__icon"><a class="footer__link" href="#" target="_blank"><i
+                                class="fa fa-facebook"></i></a></div>
+                    <div class="footer__icon"><a class="footer__link" href="#" target="_blank"><i
+                                class="fa fa-twitter"></i></a></div>
+                    <div class="footer__icon"><a class="footer__link" href="#" target="_blank"><i
+                                class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <div class="footer__icon"><a class="footer__link" href="#" target="_blank"><i
+                                class="fa fa-pinterest-p"></i></a>
+                    </div>
+                    <div class="footer__icon"><a class="footer__link" href="#" target="_blank"><i
+                                class="fab fa-google-plus-g"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.min.js"></script>
+</body>
+
+</html>
