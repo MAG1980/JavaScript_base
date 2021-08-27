@@ -193,6 +193,8 @@ input {
   width: 262px;
   background-color: #ffffff;
   border-radius: 5px;
+  -webkit-box-shadow: 15px -15px 39px -5px rgba(0, 0, 0, 0.2);
+          box-shadow: 15px -15px 39px -5px rgba(0, 0, 0, 0.2);
   z-index: 10;
 }
 
@@ -322,10 +324,6 @@ input {
   line-height: 1.2;
   font-weight: 400;
   color: #f16d7f;
-}
-
-.header__card_text span {
-  font-size: 10px;
 }
 
 .header__card_close {
@@ -1338,6 +1336,7 @@ h2 {
 
 .arrivals__breadcrumbs_link {
   text-decoration: none;
+  color: #636363;
 }
 
 .arrivals__breadcrumbs_link:hover {

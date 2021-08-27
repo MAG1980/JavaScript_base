@@ -145,6 +145,7 @@ input {
             width: 262px;
             background-color: #ffffff;
             border-radius: 5px;
+            box-shadow: 15px -15px 39px -5px rgba(0, 0, 0, 0.2);
             z-index: 10;
         }
         &_content {
@@ -243,9 +244,6 @@ input {
             line-height: 1.2;
             font-weight: 400;
             color: $accent;
-            span {
-                font-size: 10px;
-            }
         }
         &_close {
             background-color: transparent;

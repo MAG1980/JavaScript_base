@@ -40,13 +40,33 @@ window.onload = function () {
     event.preventDefault();
     cartItemCounterIncrement();
     CartItemCounterRenderer();
-    console.log(this.querySelector(".products__image").getAttribute("src"));
-    console.log(this.querySelector(".products__name").textContent);
+
     let product = {
       imgSrc: this.querySelector(".products__image").getAttribute("src"),
       cardTitle: this.querySelector(".products__name").textContent,
       price: this.querySelector(".products__price").textContent.slice(1),
+      count() {
+        let counter = 0;
+        if (cartItems.length === 0) {
+          return counter;
+        }
+        for (let i = 0; i < cartItems.length; i++) {
+          if (
+            cartItems[i]
+              .querySelector(".header__card_img")
+              .getAttribute("src") === product.imgSrc &&
+            cartItems[i].querySelector(".header__card_title").textContent ===
+              product.cardTitle
+          ) {
+            counter += 1;
+          }
+        }
+        return counter;
+      },
     };
+
+    console.log(isProductInCart(product));
+    console.log(product.count());
 
     //Шаблонный литерал товара в корзине
     let newItemInCart = markUpGenerator(product);
@@ -59,6 +79,57 @@ window.onload = function () {
 
     totalPriceRenderer();
   }
+
+  /**
+   * Изменяет значение product.count в зависимости от количества единиц одного и того же товара,
+   * добавленного в корзину
+   * 
+   * @param {*} product Объект товара, добавляемого в корзину
+   
+   */
+  function productsInCartCounter(product) {
+    let counter = 0;
+    if (cartItems.length === 0) {
+      return counter;
+    }
+    for (let i = 0; i < cartItems.length; i++) {
+      if (
+        cartItems[i].querySelector(".header__card_img").getAttribute("src") ===
+          product.imgSrc &&
+        cartItems[i].querySelector(".header__card_title").textContent ===
+          product.cardTitle
+      ) {
+        counter += 1;
+      }
+    }
+    return counter;
+  }
+
+  /**
+   * Возвращает true, если такой товар уже есть в корзине
+   * @param {*} product Объект товара, добавляемого в корзину
+   * @returns Boolean
+   */
+  function isProductInCart(product) {
+    let result = false;
+    if (cartItems.length === 0) {
+      return result;
+    }
+    for (let i = 0; i < cartItems.length; i++) {
+      console.log(cartItems[i].querySelector(".header__card_img"));
+      if (
+        cartItems[i].querySelector(".header__card_img").getAttribute("src") ===
+          product.imgSrc &&
+        cartItems[i].querySelector(".header__card_title").textContent ===
+          product.cardTitle
+      ) {
+        result = true;
+        break;
+      }
+    }
+    return result;
+  }
+
   /**
    * Отрисовывает текущее значение итоговой стоимости товаров в корзине
    */
@@ -183,7 +254,7 @@ window.onload = function () {
                           <i class="fa fa-star" aria-hidden="true"></i>
                           <i class="fa fa-star-half-o" aria-hidden="true"></i>
                       </p>
-                      <p class="header__card_text">1 x $${product.price}</p>
+                      <p class="header__card_text"><span class="header__card_text-span">1</span> x $${product.price}</p>
                   </div>
               </a>
               <button class="header__card_close" type="button"><i class="fa fa-times-circle"
