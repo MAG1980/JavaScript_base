@@ -64,11 +64,17 @@ window.onload = function () {
             cartItems[i].querySelector(".header__card_title").textContent ===
               this.cardTitle
           ) {
-            counter += 1;
+            counter =
+              Number(
+                cartItems[i].querySelector(".header__card_text-span")
+                  .textContent
+              ) + 1;
+            this.InCartLink = cartItems[i];
           }
         }
         return counter;
       },
+      InCartLink: null,
     };
 
     console.log(product.isPresentedInCart());
@@ -78,7 +84,7 @@ window.onload = function () {
     let newItemInCart = markUpGenerator(product);
 
     //Отрисовка нового товара в корзине
-    addItemToHTMLRenderer(headerCards, newItemInCart);
+    addItemToHTMLRenderer(headerCards, product, newItemInCart);
 
     //Добавление прослушивания события нажатия на кнопку "Close"
     addListenerToClose(headerCards);
@@ -189,16 +195,6 @@ window.onload = function () {
       .addEventListener("click", removeFromCart);
   }
 
-  /*   //Добавление обработчика события click кнопке "x" каждого товара в корзине
-  cartItems.forEach((item) => {
-    item
-      .querySelector(".header__card_close")
-      .addEventListener("click", removeFromCart);
-  }); */
-
-  /**
-   * Удаляет товар из корзины при возникновении события
-   */
   function removeFromCart() {
     this.parentElement.remove(this);
     cartItemCounterDecrement();
@@ -276,8 +272,17 @@ window.onload = function () {
    * @param {*} element - элемент HTML, в который будет добавляться блок разметки
    * @param {*} markUp - блок HTML-разметки, который будет добавлен на страницу
    */
-  function addItemToHTMLRenderer(element, markUp) {
-    element.insertAdjacentHTML("beforeend", markUp);
-    cartItems = headerCards.querySelectorAll(".header__card");
+  function addItemToHTMLRenderer(parent, product, markUp) {
+    if (product.isPresentedInCart()) {
+      itemInCartCount(product);
+    } else {
+      parent.insertAdjacentHTML("beforeend", markUp);
+      cartItems = headerCards.querySelectorAll(".header__card");
+    }
+  }
+
+  function itemInCartCount(product) {
+    product.InCartLink.querySelector(".header__card_text-span").textContent =
+      product.count();
   }
 };
