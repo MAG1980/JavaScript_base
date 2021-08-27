@@ -45,8 +45,14 @@ window.onload = function () {
       imgSrc: this.querySelector(".products__image").getAttribute("src"),
       cardTitle: this.querySelector(".products__name").textContent,
       price: this.querySelector(".products__price").textContent.slice(1),
+      isPresentedInCart() {
+        if (this.count() > 1) {
+          return true;
+        }
+        return false;
+      },
       count() {
-        let counter = 0;
+        let counter = 1;
         if (cartItems.length === 0) {
           return counter;
         }
@@ -54,9 +60,9 @@ window.onload = function () {
           if (
             cartItems[i]
               .querySelector(".header__card_img")
-              .getAttribute("src") === product.imgSrc &&
+              .getAttribute("src") === this.imgSrc &&
             cartItems[i].querySelector(".header__card_title").textContent ===
-              product.cardTitle
+              this.cardTitle
           ) {
             counter += 1;
           }
@@ -65,7 +71,7 @@ window.onload = function () {
       },
     };
 
-    console.log(isProductInCart(product));
+    console.log(product.isPresentedInCart());
     console.log(product.count());
 
     //Шаблонный литерал товара в корзине
@@ -245,7 +251,9 @@ window.onload = function () {
   function markUpGenerator(product) {
     return `<div class="header__card">
               <a class="header__card_link">
-                  <img src=${product.imgSrc} alt="товар" class="header__card_img">
+                  <img src=${
+                    product.imgSrc
+                  } alt="товар" class="header__card_img">
                   <div class="header__card_info">
                       <h3 class="header__card_title">${product.cardTitle}</h3>
                       <p class="header__card_icons"><i class="fa fa-star" aria-hidden="true"></i>
@@ -254,7 +262,9 @@ window.onload = function () {
                           <i class="fa fa-star" aria-hidden="true"></i>
                           <i class="fa fa-star-half-o" aria-hidden="true"></i>
                       </p>
-                      <p class="header__card_text"><span class="header__card_text-span">1</span> x $${product.price}</p>
+                      <p class="header__card_text"><span class="header__card_text-span">${product.count()}</span> x $${
+      product.price
+    }</p>
                   </div>
               </a>
               <button class="header__card_close" type="button"><i class="fa fa-times-circle"
