@@ -35,14 +35,13 @@ window.onload = function () {
    * @returns
    */
   function addToCart(event) {
-    console.log(this);
-    console.log(event.target);
     event.preventDefault();
 
     let product = {
       imgSrc: this.querySelector(".products__image").getAttribute("src"),
       cardTitle: this.querySelector(".products__name").textContent,
       price: this.querySelector(".products__price").textContent.slice(1),
+      rating: this.querySelector(".products__item-stars").innerHTML,
       isPresentedInCart() {
         if (this.count() > 1) {
           return true;
@@ -200,13 +199,10 @@ window.onload = function () {
       document.querySelectorAll(".header__card_text-span")
     ).map((elem) => Number(elem.textContent));
     if (arrItemsCount.length !== 0) {
-      //Массив с количеством каждого наименования товара в корзине
-      console.log(arrItemsCount);
       //Суммарное количество товаров в корзине
       cartItemsCounter = arrItemsCount.reduce((sum, current) => sum + current);
     }
 
-    console.log(cartItemsCounter);
     //Отрисовка количества товаров в корзине на странице
     spanCartCounter.textContent = cartItemsCounter;
     if (
@@ -238,11 +234,8 @@ window.onload = function () {
                   } alt="товар" class="header__card_img">
                   <div class="header__card_info">
                       <h3 class="header__card_title">${product.cardTitle}</h3>
-                      <p class="header__card_icons"><i class="fa fa-star" aria-hidden="true"></i>
-                          <i class="fa fa-star" aria-hidden="true"></i>
-                          <i class="fa fa-star" aria-hidden="true"></i>
-                          <i class="fa fa-star" aria-hidden="true"></i>
-                          <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                      <p class="header__card_icons">
+                          ${product.rating}
                       </p>
                       <p class="header__card_text"><span class="header__card_text-span">${product.count()}</span> x $${
       product.price
