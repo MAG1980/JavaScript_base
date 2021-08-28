@@ -38,8 +38,6 @@ window.onload = function () {
     console.log(this);
     console.log(event.target);
     event.preventDefault();
-    cartItemCounterIncrement();
-    CartItemCounterRenderer();
 
     let product = {
       imgSrc: this.querySelector(".products__image").getAttribute("src"),
@@ -51,6 +49,11 @@ window.onload = function () {
         }
         return false;
       },
+      /**
+       * Возвращает количество единиц одного товара в корзине,
+       * Формирование InCartLink (ссылки текущий товар в корзине в DOM)
+       * @returns Number
+       */
       count() {
         let counter = 1;
         if (cartItems.length === 0) {
@@ -74,11 +77,9 @@ window.onload = function () {
         }
         return counter;
       },
+      //Ссылка на текущий товар в корзине в DOM
       InCartLink: null,
     };
-
-    console.log(product.isPresentedInCart());
-    console.log(product.count());
 
     //Шаблонный литерал товара в корзине
     let newItemInCart = markUpGenerator(product);
@@ -88,33 +89,8 @@ window.onload = function () {
 
     //Добавление прослушивания события нажатия на кнопку "Close"
     addListenerToClose(headerCards);
-
+    CartItemCounterRenderer();
     totalPriceRenderer();
-  }
-
-  /**
-   * Изменяет значение product.count в зависимости от количества единиц одного и того же товара,
-   * добавленного в корзину
-   * 
-   * @param {*} product Объект товара, добавляемого в корзину
-   
-   */
-  function productsInCartCounter(product) {
-    let counter = 0;
-    if (cartItems.length === 0) {
-      return counter;
-    }
-    for (let i = 0; i < cartItems.length; i++) {
-      if (
-        cartItems[i].querySelector(".header__card_img").getAttribute("src") ===
-          product.imgSrc &&
-        cartItems[i].querySelector(".header__card_title").textContent ===
-          product.cardTitle
-      ) {
-        counter += 1;
-      }
-    }
-    return counter;
   }
 
   /**
@@ -157,18 +133,23 @@ window.onload = function () {
   }
 
   /**
-   * Возвращает массив цен товаров в корзине
+   * Возвращает массив суммарной стоимости каждой позиции товара в корзине
+   * (с учётом количества единиц каждого товара)
    */
   function arrCartPrices() {
     //Массив цен товаров в корзине
     let arrPrices = Array.from(cartItems).map(function (cartItem) {
+      //Количество единиц товара в корзине
+      let itemQuantity = Number(
+        cartItem.querySelector(".header__card_text-span").textContent
+      );
       //Текст строки с ценой товара
       let stringPrice =
         cartItem.querySelector(".header__card_text").textContent;
       //Номер позиции символа $ в строке с ценой товара
       let numberPos$ = stringPrice.indexOf("$");
       //Часть строки с ценой, начиная с $, преобразованная в число
-      return Number(stringPrice.slice(numberPos$ + 1));
+      return itemQuantity * Number(stringPrice.slice(numberPos$ + 1));
     });
     return arrPrices;
   }
@@ -197,7 +178,6 @@ window.onload = function () {
 
   function removeFromCart() {
     this.parentElement.remove(this);
-    cartItemCounterDecrement();
     CartItemCounterRenderer();
     cartContentUpdater();
     totalPriceRenderer();
@@ -208,31 +188,35 @@ window.onload = function () {
   }
 
   /**
-   * Увеличивает счётчик товаров в корзине на 1
-   */
-  function cartItemCounterIncrement() {
-    cartItemCounter += 1;
-  }
-
-  /**
-   * Уменьшает счётчик товаров в корзине на 1
-   */
-  function cartItemCounterDecrement() {
-    cartItemCounter -= 1;
-  }
-  /**
    * Обновляет отображение счётчика товаров в корзине
    */
   function CartItemCounterRenderer() {
-    spanCartCounter.textContent = cartItemCounter;
+    let cartItemsCounter = 0;
+    // headerCards = document.getElementById("header__cards");
+    // if (typeof headerCards == "undefined") {
+    //   cartItemsCounter = 0;
+    // }
+    let arrItemsCount = Array.from(
+      document.querySelectorAll(".header__card_text-span")
+    ).map((elem) => Number(elem.textContent));
+    if (arrItemsCount.length !== 0) {
+      //Массив с количеством каждого наименования товара в корзине
+      console.log(arrItemsCount);
+      //Суммарное количество товаров в корзине
+      cartItemsCounter = arrItemsCount.reduce((sum, current) => sum + current);
+    }
+
+    console.log(cartItemsCounter);
+    //Отрисовка количества товаров в корзине на странице
+    spanCartCounter.textContent = cartItemsCounter;
     if (
-      cartItemCounter >= 0 &&
+      cartItemsCounter >= 0 &&
       spanCartCounter.classList.contains("visually-hidden")
     ) {
       spanCartCounter.classList.remove("visually-hidden");
     }
     if (
-      cartItemCounter === 0 &&
+      cartItemsCounter === 0 &&
       !spanCartCounter.classList.contains("visually-hidden")
     ) {
       spanCartCounter.classList.add("visually-hidden");
