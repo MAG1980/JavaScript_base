@@ -214,12 +214,14 @@ window.onload = function () {
       spanCartCounter.classList.contains("visually-hidden")
     ) {
       spanCartCounter.classList.remove("visually-hidden");
+      headerCart.setAttribute("open", "");
     }
     if (
       cartItemsCounter === 0 &&
       !spanCartCounter.classList.contains("visually-hidden")
     ) {
       spanCartCounter.classList.add("visually-hidden");
+      headerCart.removeAttribute("open");
     }
   }
 
