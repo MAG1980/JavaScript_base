@@ -29,7 +29,8 @@ function unFillElem(event) {
   }
 }
 
-function setRating() {
+function setRating(event) {
+  event.stopPropagation();
   products.removeEventListener("mouseout", unFillElem);
   setTimeout(function () {
     products.addEventListener("mouseover", fillElem);

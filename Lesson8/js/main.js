@@ -35,6 +35,11 @@ window.onload = function () {
    * @returns
    */
   function addToCart(event) {
+    console.log(event.target);
+    if (event.target.closest(".products__add_link") == null) {
+      return;
+    }
+
     event.preventDefault();
 
     let product = {
