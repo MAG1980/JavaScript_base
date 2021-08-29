@@ -1,34 +1,38 @@
 "use strict";
 let goldenClass = "products__item-stars_golden";
-let products = document.querySelectorAll(".products__item-stars");
-products.forEach(fillElement);
+let products = document.querySelector(".products__content");
 
-function fillElement(element) {
-  element.addEventListener("mouseover", function (event) {
-    let i = event.target.closest("i");
-    if (i == null) return;
-    if (!i.classList.contains("goldenClass")) {
-      i.classList.add(goldenClass);
-      let prevSibling = i.previousElementSibling;
-      while (prevSibling !== null) {
-        prevSibling.classList.add(goldenClass);
-        prevSibling = prevSibling.previousElementSibling;
-      }
-    }
-  });
+products.addEventListener("mouseover", fillElem);
+products.addEventListener("mouseout", unFillElem);
+products.addEventListener("click", setRating);
+
+function fillElem(event) {
+  let star = event.target.closest(".fas");
+  if (star == null) {
+    return;
+  }
+  while (star != null) {
+    star.classList.add(goldenClass);
+    star = star.previousElementSibling;
+  }
 }
-products.forEach(unfillElement);
 
-function unfillElement(element) {
-  element.addEventListener("mouseout", function (event) {
-    let nextSibling = event.target.nextElementSibling;
-    while (
-      // nextSibling !== null &&
-      nextSibling.classList.contains(goldenClass)
-    ) {
-      nextSibling.classList.remove(goldenClass);
+function unFillElem(event) {
+  let star = event.target.closest(".fas");
+  if (star == null) {
+    return;
+  }
+  while (star.nextElementSibling != null) {
+    star.classList.remove(goldenClass);
+    star.nextElementSibling.classList.remove(goldenClass);
+    star = star.nextElementSibling;
+  }
+}
 
-      nextSibling = nextSibling.nextElementSibling;
-    }
-  });
+function setRating() {
+  products.removeEventListener("mouseout", unFillElem);
+  setTimeout(function () {
+    products.addEventListener("mouseover", fillElem);
+    products.addEventListener("mouseout", unFillElem);
+  }, 1000);
 }
